@@ -47,7 +47,7 @@ if (isset($_POST['login'])) {
   $password=$_POST['mdp'];
   $MM_fldUserAuthorization = "";
   $MM_redirectLoginSuccess = "admin.php";
-  $MM_redirectLoginFailed = "index.php?msg=login ou mdp incorrect";
+  $MM_redirectLoginFailed = "index.php?msg=Vérifiez votre nom d'utilisateur et votre mot de passe. Si vous ne parvenez toujours pas à vous connecter, contactez votre administrateur Moussa.";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_cnx, $cnx);
 
@@ -87,11 +87,12 @@ if (isset($_POST['login'])) {
 
   <link rel="stylesheet" type="text/css" href="public/css/messtyles.css">
 
-  <title>NTech</title>
+  <title>No stress Team</title>
 </head>
 
-<body style="padding-top: 120px">
+<body >
 
+<div class="container" style="margin-top: 5%">
 <form name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
 
   <div class="container">
@@ -109,17 +110,21 @@ if (isset($_POST['login'])) {
   </div><!-- /container -->
 
 </form>
+  </div>
 &nbsp;
-<p class="alert alert-danger">
-  <?php if (isset($_REQUEST["msg"]))
-    echo $_REQUEST["msg"]; ?>
-</p>
+
+<?php if (isset($_REQUEST['msg'])) { ?>
+  <div class="alert alert-danger">
+    <?php echo $_REQUEST["msg"];?>
+  </div>
+<?php }?>
+
 
 </body>
-<footer >
-  <div class="footer-bottom">
+<footer style=" background-color: #15224f;margin-top:15% ">
+<!--  <div class="footer-bottom">-->
 
-    <div class="container">
+    <div class="container" >
 
       <div class="row">
 
@@ -147,7 +152,7 @@ if (isset($_POST['login'])) {
 
     </div>
 
-  </div>
+<!--  </div>-->
 
 </footer>
 </html>
