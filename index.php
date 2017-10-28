@@ -1,34 +1,34 @@
 <?php require_once('Connections/cnx.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
+  function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
+  {
+    if (PHP_VERSION < 6) {
+      $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+    }
 
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+    $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
 
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
+    switch ($theType) {
+      case "text":
+        $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+        break;
+      case "long":
+      case "int":
+        $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+        break;
+      case "double":
+        $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+        break;
+      case "date":
+        $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+        break;
+      case "defined":
+        $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+        break;
+    }
+    return $theValue;
   }
-  return $theValue;
-}
 }
 ?>
 <?php
@@ -50,22 +50,22 @@ if (isset($_POST['login'])) {
   $MM_redirectLoginFailed = "index.php?msg=login ou mdp incorrect";
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_cnx, $cnx);
-  
+
   $LoginRS__query=sprintf("SELECT login, mdp FROM etudiants WHERE login=%s AND mdp=%s",
-    GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
-   
+      GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text"));
+
   $LoginRS = mysql_query($LoginRS__query, $cnx) or die(mysql_error());
   $loginFoundUser = mysql_num_rows($LoginRS);
   if ($loginFoundUser) {
-     $loginStrGroup = "";
-    
-	if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
+    $loginStrGroup = "";
+
+    if (PHP_VERSION >= 5.1) {session_regenerate_id(true);} else {session_regenerate_id();}
     //declare two session variables and assign them
     $_SESSION['MM_Username'] = $loginUsername;
-    $_SESSION['MM_UserGroup'] = $loginStrGroup;	      
+    $_SESSION['MM_UserGroup'] = $loginStrGroup;
 
     if (isset($_SESSION['PrevUrl']) && false) {
-      $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];	
+      $MM_redirectLoginSuccess = $_SESSION['PrevUrl'];
     }
     header("Location: " . $MM_redirectLoginSuccess );
   }
@@ -77,8 +77,8 @@ if (isset($_POST['login'])) {
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -86,38 +86,34 @@ if (isset($_POST['login'])) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="public/css/messtyles.css">
-  
-<title>NTech</title>
+
+  <title>NTech</title>
 </head>
 
 <body style="padding-top: 120px">
 
 <form name="form1" method="POST" action="<?php echo $loginFormAction; ?>">
 
- <div class="container">
-        <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="public/image/icon.png" width="138" height="161" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <div class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text"  name="login" id="login" class="form-control" placeholder="Login" required autofocus>
-                <input type="password" name="mdp" id="mdp" class="form-control" placeholder="Mot de Passe" required>
-               
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Se Connecter</button>
-            </div><!-- /form -->
-   </div><!-- /card-container -->
-</div><!-- /container -->
+  <div class="container">
+    <div class="card card-container">
+      <img id="profile-img" class="profile-img-card" src="public/image/icon.png" width="138" height="161" />
+      <p id="profile-name" class="profile-name-card"></p>
+      <div class="form-signin">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="text"  name="login" id="login" class="form-control" placeholder="Login" required autofocus>
+        <input type="password" name="mdp" id="mdp" class="form-control" placeholder="Mot de Passe" required>
+
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Se Connecter</button>
+      </div><!-- /form -->
+    </div><!-- /card-container -->
+  </div><!-- /container -->
 
 </form>
 &nbsp;
-<p style="color:red">
-<?php if (isset($_REQUEST["msg"]))
-echo $_REQUEST["msg"]; ?>
+<p class="alert alert-danger">
+  <?php if (isset($_REQUEST["msg"]))
+    echo $_REQUEST["msg"]; ?>
 </p>
-
-
-
- 
 
 </body>
 <footer >

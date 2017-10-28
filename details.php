@@ -204,7 +204,7 @@ $totalPages_DetailRS1 = ceil($totalRows_DetailRS1/$maxRows_DetailRS1)-1;
               </tr>
               <tr>
                 <td>Email</td>
-                <td><a href="mailto:info@support.com"><?php echo $row_DetailRS1['adresse']; ?></a></td>
+                <td><a href="mailto:info@support.com"><?php echo $row_DetailRS1['email']; ?></a></td>
               </tr>
               <tr>
                 <td>Telephone</td>
