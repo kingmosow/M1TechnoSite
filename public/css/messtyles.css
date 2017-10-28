@@ -1,0 +1,206 @@
+
+        .mycolor{
+            color : #09C;
+        }        
+        .myborder{
+            padding: 20px;;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .mybutton{
+            position: relative;
+            left: 50%;
+            top: 193px;
+
+        }
+        .margin-bottom-20 {
+            margin-bottom: 20px;
+
+        }
+        .btn-u:hover {
+            background: #09C;
+        }
+        .btn-u:hover, .btn-u:focus, .btn-u:active, .btn-u.active, .open .dropdown-toggle.btn-u {
+            background:indigo;
+        }
+        .btn-u:hover {
+            color: #fff;
+            text-decoration: none;
+           
+        }
+        .btn-u {
+            background: indigo;
+        }
+        .btn-u {
+            border: 0;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 400;
+            padding: 6px 13px;
+            position: relative;
+            background: #09C;
+            display: inline-block;
+            text-decoration: none;
+			border-radius: 8px;
+        }
+        .input-group-addon {
+            border-right: 0;
+            /*color: #b3b3b3;*/
+            font-size: 15px;
+            background: #fff;
+            padding: 6px 12px;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1;
+            color: #555;
+            text-align: center;
+            background-color:#eee;
+            border: 1px solid #09C;
+            border-radius: 8px;
+        }
+        .input-group .form-control {
+            float: left;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .form-control {
+            box-shadow: none;
+        }
+        .form-control {
+            display: block;
+            width: 80%;
+            height: 34px !important;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color:#555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid  #09F !important;
+            border-radius: 8px;
+        }
+		
+
+body {
+    background-repeat: repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+}
+
+.card-container.card {
+    max-width: 280px;
+    padding: 30px 30px;
+}
+
+.btn {
+    font-weight: 700;
+    height: 36px;
+    cursor:pointer;
+}
+
+.card {
+    background-color:#CCC;
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+}
+
+
+.btn.btn-signin {
+   /* background-color: rgb(104, 145, 162);*/
+    background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.panel-footer.panel-primary {
+    background:#006dcc;
+    color: white;
+}
+
+
+/*Footer*/
+.footer1 {
+    
+    padding-top: 55px;
+    padding-right: 0;
+    padding-bottom: 20px;
+    padding-left: 0;/*  border-top-width: 4px;
+    border-top-style: solid;
+    border-top-color: #003;*/
+}
+
+
+.footer-bottom {
+    background-color: #15224f;
+    min-height: 30px;
+    width: 100%;
+}
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
+}
